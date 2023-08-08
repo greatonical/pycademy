@@ -1,6 +1,8 @@
-const { getDefaultConfig } = require('@expo/metro-config');
+// metro.confgi.js
+const { getDefaultConfig } = require("expo/metro-config");
 
-const defaultConfig = getDefaultConfig(__dirname);
-defaultConfig.resolver.assetExts.push('cjs');
+const config = getDefaultConfig(__dirname, {
+  isCSSEnabled: true,
+});
 
-module.exports = defaultConfig;
+module.exports = config;

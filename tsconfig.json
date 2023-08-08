@@ -3,7 +3,17 @@
     "compilerOptions": {
         "strict": true,
         "module": "esnext",
+        "baseUrl": ".",
+        "paths": {
+            "@fonts":["src/utils/fonts.ts"],
+            "@colors":["src/utils/colors.ts"],
+            "@routes":["src/utils/routes.ts"],
+            "@components":["src/components/"],
+            "@images/*":["src/images/*"],
+            "@lib/*":["src/lib/*"]
+        }
     }
+  
 
 }
   

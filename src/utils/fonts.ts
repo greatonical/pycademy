@@ -1,0 +1,6 @@
+export const DMSans_400Regular = 'DMSans_400Regular'
+export const DMSans_500Medium = 'DMSans_500Medium'
+export const DMSans_600SemiBold = 'DMSans_600SemiBold'
+export const DMSans_700Bold = 'DMSans_700Bold'
+export const DMSans_800ExtraBold = 'DMSans_800ExtraBold'
+export const DMSans_900Black = 'DMSans_900Black'

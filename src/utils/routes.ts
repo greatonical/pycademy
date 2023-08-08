@@ -1,0 +1,6 @@
+export const auth = 'auth'
+export const onboarding = 'onboarding'
+export const login = 'auth/login'
+export const signup = 'auth/signup'
+export const home = 'home' 
+export const profile = 'profile' 

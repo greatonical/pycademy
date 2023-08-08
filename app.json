@@ -5,6 +5,15 @@
       "bundler": "metro"
     },
     "name": "Pycademy",
-    "slug": "Pycademy"
+    "slug": "pycademy",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0D6AE3"
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
