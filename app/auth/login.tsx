@@ -62,7 +62,7 @@ export default function login() {
         className="absolute bottom-10 self-center"
         text="Continue"
         onPress={() => {
-          router.push(home);
+          router.push("menu");
         }}
       />
 
