@@ -10,7 +10,7 @@ import {
 import * as Colors from "@colors";
 import * as OutlinedIcon from "react-native-heroicons/outline";
 import { CustomTextInput } from "@components";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useRouter } from "expo-router";
 import { home, login } from "@routes";
 
@@ -23,8 +23,10 @@ export default function signup() {
 
   return (
     <SafeAreaView className="flex-1 p-5">
-      <OutlinedRoundButton
+     <ScrollView showsVerticalScrollIndicator={false}>
+     <OutlinedRoundButton
         className="w-12 h-12 mt-4"
+        onPress={() =>{router.back()}}
         icon={
           <OutlinedIcon.ArrowLeftIcon color={Colors.primaryColor} size={20} />
         }
@@ -63,12 +65,6 @@ export default function signup() {
         />
       </View>
 
-      <CustomButton
-        className="absolute bottom-16 self-center"
-        text="Continue"
-        onPress={() => {router.push(home)}}
-      />
-
       <TouchableOpacity className="flex-row mt-5" activeOpacity={0.5} onPress={() => {router.push(login)}}>
         <Text
           children="Already have an account"
@@ -79,6 +75,15 @@ export default function signup() {
           className="text-primary font-dmsans-bold ml-1"
         />
       </TouchableOpacity>
+
+      <CustomButton
+        className="mt-[30%] self-center"
+        text="Continue"
+        onPress={() => {router.push(home)}}
+      />
+
+
+     </ScrollView>
     </SafeAreaView>
   );
 }

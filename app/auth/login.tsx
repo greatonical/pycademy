@@ -23,6 +23,7 @@ export default function login() {
     <SafeAreaView className="flex-1 p-5">
       <OutlinedRoundButton
         className="w-12 h-12 mt-4"
+        onPress={() =>{router.back()}}
         icon={
           <OutlinedIcon.ArrowLeftIcon color={Colors.primaryColor} size={20} />
         }
@@ -58,7 +59,7 @@ export default function login() {
       </View>
 
       <CustomButton
-        className="absolute bottom-16 self-center"
+        className="absolute bottom-10 self-center"
         text="Continue"
         onPress={() => {
           router.push(home);
