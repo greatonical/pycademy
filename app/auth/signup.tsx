@@ -13,13 +13,19 @@ import { CustomTextInput } from "@components";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useRouter } from "expo-router";
 import { home, login } from "@routes";
+import { SignUp } from "@lib/auth";
+
+
 
 export default function signup() {
   const [fullName, setFullName] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
   const [password, setPassword] = useState("")
 
+
   const router = useRouter()
+
+
 
   return (
     <SafeAreaView className="flex-1 p-5">
@@ -79,7 +85,7 @@ export default function signup() {
       <CustomButton
         className="mt-[30%] self-center"
         text="Continue"
-        onPress={() => {router.push(home)}}
+        onPress={()=>SignUp(emailAddress, password)}
       />
 
 

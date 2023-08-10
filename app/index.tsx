@@ -1,5 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import '../firebaseConfig'
 import Onboarding from './auth/onboarding'
 import {
     SafeAreaView,
