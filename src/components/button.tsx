@@ -52,6 +52,21 @@ export const CustomButton = styled(
   }
 );
 
+export const SignupCustomButton = styled(
+  (props: TouchableOpacityProps & { text: string }) => {
+    const { text, ...rest } = props;
+    return (
+      <TouchableOpacity
+        className="w-full h-16 bg-primary  rounded-xl items-center justify-center"
+        activeOpacity={0.8}
+        {...rest}
+      >
+        <Text className="text-white text-lg font-dmsans">{text}</Text>
+      </TouchableOpacity>
+    );
+  }
+);
+
 export const OutlinedCustomButton = styled(
   (props: TouchableOpacityProps & { text: string }) => {
     const { text, ...rest } = props;
