@@ -9,6 +9,7 @@
             "@colors":["src/utils/colors.ts"],
             "@routes":["src/utils/routes.ts"],
             "@components":["src/components/"],
+            "@animations":["src/animations/*"],
             "@images/*":["src/images/*"],
             "@lib/*":["src/lib/*"]
         }

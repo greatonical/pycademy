@@ -12,6 +12,7 @@ module.exports = function (api) {
             "^@fonts": "./src/utils/fonts.ts",
             "^@routes": "./src/utils/routes.ts",
             "^@components": "./src/components",
+            "^@animations": "./src/animations/\\1",
             "^@lib/(.*)": "./src/lib/\\1",
             "^@images/(.*)": "./src/images/\\1",
             "^@/(.*)": "./\\1",
