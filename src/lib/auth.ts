@@ -3,29 +3,43 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  updateProfile,
   User,
 } from "firebase/auth";
+import  {collection,addDoc} from 'firebase/firestore'
 import React, { useState, useEffect } from "react";
 import { useRouter } from "expo-router";
 
-export function SignUp(email: string, password: string) {
+export function SignUp(fullName:string, email: string, password: string, func:any) {
   const auth = getAuth();
 
   const router = useRouter()
+  const showModal = false
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
-
+      
       const user = userCredential.user;
-      console.log(user)
-      return user;
-      // ...
+      // @ts-ignore
+      updateProfile(auth.currentUser, {
+        displayName: fullName
+      }).then(() => {
+        console.log(user)
+        {func}
+        return user;
+        // Profile updated!
+        // ...
+      }).catch((error) => {
+        alert(error)
+      });
+    
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
       console.log(errorMessage);
+      alert(error)
       // ..
     });
 }

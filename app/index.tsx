@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import '../config/firebase'
 import Onboarding from './auth/onboarding'
+
 import {
     SafeAreaView,
     SafeAreaProvider,
@@ -18,9 +19,14 @@ import {
     DMSans_800ExtraBold,
     DMSans_900Black,
   } from "@expo-google-fonts/dm-sans";
+import { getAuth } from 'firebase/auth'
+import { useRouter } from 'expo-router/src/exports';
+import Home from './menu/home';
 
 
 export default function index() {
+  const auth = getAuth()
+  const router = useRouter()
     let [fontsLoaded] = useFonts({
         "dmsans":DMSans_400Regular,
         "dmsans-medium": DMSans_500Medium,
@@ -33,9 +39,19 @@ export default function index() {
       if (!fontsLoaded) {
         return null;
       }
-  return (
-    <SafeAreaProvider>
-   <Onboarding/>
-    </SafeAreaProvider>
-  )
+      if (auth.currentUser != null){
+        return (
+          <SafeAreaProvider>
+         <Onboarding/>
+          </SafeAreaProvider>
+        )
+      }
+      else{
+        return (
+          <SafeAreaProvider>
+            <Home/>
+          </SafeAreaProvider>
+        )
+      }
+ 
 }

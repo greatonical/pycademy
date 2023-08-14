@@ -6,6 +6,7 @@ import {
   OutlinedRoundButton,
   CustomButton,
   CustomPasswordTextInput,
+  SuccessModal,
 } from "@components";
 import * as Colors from "@colors";
 import * as OutlinedIcon from "react-native-heroicons/outline";
@@ -21,15 +22,22 @@ export default function signup() {
   const [fullName, setFullName] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
   const [password, setPassword] = useState("")
+  const [isModalShown, setModalShown] = useState(false)
 
 
   const router = useRouter()
 
+  function showModal (){
+    setModalShown(true)
+    setTimeout(() => {
+      router.push(home)
+  }, 3000);
+  }
 
 
   return (
-    <SafeAreaView className="flex-1 p-5">
-     <ScrollView showsVerticalScrollIndicator={false}>
+    <SafeAreaView className="flex-1">
+     <ScrollView className=" p-5" showsVerticalScrollIndicator={false}>
      <OutlinedRoundButton
         className="w-12 h-12 mt-4"
         onPress={() =>{router.back()}}
@@ -85,11 +93,16 @@ export default function signup() {
       <CustomButton
         className="mt-[30%] self-center"
         text="Continue"
-        onPress={()=>SignUp(emailAddress, password)}
+        onPress={()=>SignUp(fullName, emailAddress, password, showModal())}
       />
 
+     
 
      </ScrollView>
+     {
+      isModalShown ? (<SuccessModal text="You have successfully signed up!"/>):(null)
+     }
+     
     </SafeAreaView>
   );
 }
